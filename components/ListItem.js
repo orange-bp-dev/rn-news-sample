@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View, Image, StyleSheet } from "react-native"
+import { Text, View, Image, StyleSheet, TouchableOpacity } from "react-native"
 
 const styles = StyleSheet.create({
   itemContainer: { height: 100, width: "100%", borderColor: "gray", borderWidth: 0.5, flexDirection: "row" },
@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
   }
 })
 
-export const ListItem = ({ author, text, image }) => {
+export const ListItem = ({ author, text, image, onPress }) => {
   return (
-    <View style={styles.itemContainer}>
+    <TouchableOpacity style={styles.itemContainer} onPress={onPress}>
       <View style={styles.leftContainer}>
         <Image style={{ width: 100, height: 100 }} source={{ uri: image }} />
       </View>
@@ -33,6 +33,6 @@ export const ListItem = ({ author, text, image }) => {
         </Text>
         <Text style={styles.subText}>{author}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
